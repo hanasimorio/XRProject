@@ -18,6 +18,7 @@ TagManager:
   - EMagic
   - EnemySpawn
   - PlayerTextOut
+  - Trans
   layers:
   - Default
   - TransparentFX
