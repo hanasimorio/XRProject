@@ -12,6 +12,8 @@ public class PlayerKeyPush : MonoBehaviour
 
     private bool Attention = false;
 
+    private GameObject parent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,8 @@ public class PlayerKeyPush : MonoBehaviour
                     {
                         Play.Invoke();
                         PlayerTextOut.text = "Success!!";
+                        parent = other.transform.root.gameObject;
+                        Destroy(parent);
                     }
                     else
                     {
