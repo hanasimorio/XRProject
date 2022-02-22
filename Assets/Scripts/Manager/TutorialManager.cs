@@ -46,10 +46,48 @@ public class TutorialManager : MonoBehaviour
 
     private bool IsThunder = false;
 
+    private AudioSource AS;
+
+    [SerializeField, Tooltip("自己紹介")] private AudioClip Sound1;
+
+    [SerializeField, Tooltip("チュートリアルを受けるかどうか")] private AudioClip Sound2;
+
+    [SerializeField, Tooltip("線を書かせる")] private AudioClip Sound3;
+
+    [SerializeField, Tooltip("火の魔法を書かせる")] private AudioClip Sound4;
+
+    [SerializeField, Tooltip("火の魔法に触れさせる")] private AudioClip Sound5;
+
+    [SerializeField, Tooltip("トリガーをひかせる")] private AudioClip Sound6;
+
+    [SerializeField, Tooltip("火魔法の説明")] private AudioClip Sound7;
+
+    [SerializeField, Tooltip("雷魔法を書かせる")] private AudioClip Sound8;
+
+    [SerializeField, Tooltip("雷魔法の説明")] private AudioClip Sound9;
+
+    [SerializeField, Tooltip("星魔法をかかせる")] private AudioClip Sound10;
+
+    [SerializeField, Tooltip("星魔法の説明")] private AudioClip Sound11;
+
+    [SerializeField, Tooltip("水魔法を書かせる")] private AudioClip Sound12;
+
+    [SerializeField, Tooltip("水魔法の説明")] private AudioClip Sound13;
+
+    [SerializeField, Tooltip("土魔法を書かせる")] private AudioClip Sound14;
+
+    [SerializeField, Tooltip("盾魔法の説明")] private AudioClip Sound15;
+
+    [SerializeField, Tooltip("チュートリアル終了")] private AudioClip Sound16;
+
+    [SerializeField, Tooltip("移動開始の合図")] private AudioClip Sound17;
+
     void Start()
     {
         image = TutoImage.GetComponent<Image>();
         image.color = new Color(0f, 0f, 0f, 0f);
+
+        AS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -81,7 +119,12 @@ public class TutorialManager : MonoBehaviour
     public void StartTutorial()
     {
         TutorialOn = true;
+        AS.PlayOneShot(Sound3);
     }
+
+   
+
+
     IEnumerator SpawnTestBody()
     {
         yield return new WaitForSeconds(3f);
@@ -135,5 +178,16 @@ public class TutorialManager : MonoBehaviour
         ClayCount += count;
     }
 
+    public void ShowFVoice()
+    {
+        StartCoroutine(FirstVoice());
+    }
+
+    IEnumerator FirstVoice()
+    {
+        AS.PlayOneShot(Sound1);
+        yield return new WaitForSeconds(3f);
+        AS.PlayOneShot(Sound2);
+    }
 
 }

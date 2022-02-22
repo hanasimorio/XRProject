@@ -14,10 +14,14 @@ public class PlayerKeyPush : MonoBehaviour
 
     private GameObject parent;
 
+    [SerializeField, Tooltip("ê¸Çï`Ç≠GameObject")] private GameObject LinePos;
+
+
     // Start is called before the first frame update
     void Start()
     {
         PlayerTextOut = GameObject.FindGameObjectWithTag("PlayerTextOut").GetComponentInChildren<TextMeshPro>();
+        LinePos.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,6 +44,7 @@ public class PlayerKeyPush : MonoBehaviour
                         Play.Invoke();
                         PlayerTextOut.text = "Success!!";
                         parent = other.transform.root.gameObject;
+                        LinePos.SetActive(true);//ê¸ÇÇ©ÇØÇÈÇÊÇ§Ç…Ç∑ÇÈ
                         Destroy(parent);
                     }
                     else
