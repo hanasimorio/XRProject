@@ -17,6 +17,8 @@ public class TutorialManager : MonoBehaviour
     [SerializeField, Tooltip("魔法の説明を表示するImage")]
     private GameObject TutoImage;
 
+    
+
     [SerializeField, Tooltip("炎魔法Sprite")]
     private Sprite Flamesprite;
 
@@ -46,7 +48,7 @@ public class TutorialManager : MonoBehaviour
 
     private bool IsThunder = false;
 
-    private AudioSource AS;
+    /*private AudioSource AS;
 
     [SerializeField, Tooltip("自己紹介")] private AudioClip Sound1;
 
@@ -80,14 +82,14 @@ public class TutorialManager : MonoBehaviour
 
     [SerializeField, Tooltip("チュートリアル終了")] private AudioClip Sound16;
 
-    [SerializeField, Tooltip("移動開始の合図")] private AudioClip Sound17;
+    [SerializeField, Tooltip("移動開始の合図")] private AudioClip Sound17;*/
 
     void Start()
     {
         image = TutoImage.GetComponent<Image>();
         image.color = new Color(0f, 0f, 0f, 0f);
 
-        AS = GetComponent<AudioSource>();
+        //AS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -119,7 +121,7 @@ public class TutorialManager : MonoBehaviour
     public void StartTutorial()
     {
         TutorialOn = true;
-        AS.PlayOneShot(Sound3);
+        //AS.PlayOneShot(Sound3);
     }
 
    
@@ -185,9 +187,9 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator FirstVoice()
     {
-        AS.PlayOneShot(Sound1);
+        //AS.PlayOneShot(Sound1);
         yield return new WaitForSeconds(3f);
-        AS.PlayOneShot(Sound2);
+        //AS.PlayOneShot(Sound2);
     }
 
 }

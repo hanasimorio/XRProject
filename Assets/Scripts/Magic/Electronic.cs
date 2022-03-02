@@ -20,6 +20,7 @@ public class Electronic: MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Invoke("Destroy", 10);
     }
 
     // Update is called once per frame
@@ -75,6 +76,12 @@ public class Electronic: MonoBehaviour
             Enemy.ApplyDamage(20f, types);
             Destroy(gameObject);
         }
+    }
+
+
+    private void Destroy()
+    {
+        Destroy(this.gameObject);
     }
 
 }

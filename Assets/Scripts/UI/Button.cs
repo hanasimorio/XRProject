@@ -14,11 +14,15 @@ public class Button : MonoBehaviour
 
     private bool IsPressed;
 
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
         IsPressed = false;
+
+        
     }
 
     // Update is called once per frame
@@ -34,6 +38,7 @@ public class Button : MonoBehaviour
             button.transform.localPosition = new Vector3(0f, 0.003f, 0f);
             Presser = other.gameObject;
             onPressed.Invoke();
+            
             IsPressed = true;
         }
 
@@ -52,7 +57,13 @@ public class Button : MonoBehaviour
 
     public void Destroy()
     {
-        Destroy(this.gameObject);
+        StartCoroutine(D());
     }
 
+
+    IEnumerator D()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(this.gameObject);
+    }
 }

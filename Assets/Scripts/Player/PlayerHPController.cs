@@ -13,11 +13,11 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
     [SerializeField, Tooltip("ダメージ受けたときに表示するUI")]
     private GameObject DamageImage;
 
-    [SerializeField, Tooltip("転生するときのエフェクト")]
-    private GameObject Tenseieffect1;
+    //[SerializeField, Tooltip("転生するときのエフェクト")]
+    //private GameObject Tenseieffect1;
 
-    [SerializeField, Tooltip("転生するときのエフェクト")]
-    private GameObject Tenseieffect2;
+    //[SerializeField, Tooltip("転生するときのエフェクト")]
+   // private GameObject Tenseieffect2;
 
     [SerializeField, Tooltip("エフェクトを出すポジション")]
     private GameObject EffectPos;
@@ -51,7 +51,7 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
         }
         else if (HP <= 50)
         {
-            this.image.color = new Color(0.5f, 0f, 0f, 1.0f);
+            this.image.color = new Color(0.8f, 0f, 0f, 1.0f);
         }
 
         else if (HP <= 100)
@@ -60,7 +60,7 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
         }
         else if(HP <= 150)
         {
-            this.image.color = new Color(0.5f, 0f, 0f, 1.0f);
+            this.image.color = new Color(0.2f, 0f, 0f, 1.0f);
         }
 
         for (int i = 0; i < attacks.Count; i++)
@@ -77,7 +77,7 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
         }
     }
 
-    public void TenseiEffect(float waittime)
+   /* public void TenseiEffect(float waittime)
     {
         StartCoroutine(SpawnEffect(waittime));
     }
@@ -88,6 +88,6 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
         Instantiate(Tenseieffect1, EffectPos.transform.position, EffectPos.transform.rotation);
         yield return new WaitForSeconds(2f);
         Instantiate(Tenseieffect2, EffectPos.transform.position, EffectPos.transform.rotation);
-    }
+    }*/
 
 }

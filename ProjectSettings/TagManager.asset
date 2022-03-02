@@ -19,6 +19,7 @@ TagManager:
   - EnemySpawn
   - PlayerTextOut
   - Trans
+  - Light
   layers:
   - Default
   - TransparentFX

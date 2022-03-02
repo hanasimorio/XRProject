@@ -1421,6 +1421,7 @@ MonoBehaviour:
   particle: {fileID: 1618365688748934034, guid: 92d7644c794ee734790fa5308ee4d9d3,
     type: 3}
   speed: 1
+  child: {fileID: 5105580899322858835}
 --- !u!1 &5105580899322858709
 GameObject:
   m_ObjectHideFlags: 0

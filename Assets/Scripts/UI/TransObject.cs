@@ -28,6 +28,9 @@ public class TransObject : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-
+    public void DontDestroyMove()
+    {
+        ani.SetTrigger("Move");
+    }
 
 }

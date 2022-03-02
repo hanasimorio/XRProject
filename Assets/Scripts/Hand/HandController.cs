@@ -12,6 +12,7 @@ public class HandController : MonoBehaviour
     [Tooltip("エフェクトポジション")]
     public Transform EffectPosition;
 
+
     [Tooltip("土魔法")]
     public GameObject ClayMagic;//土魔法
     [Tooltip("雷魔法")]

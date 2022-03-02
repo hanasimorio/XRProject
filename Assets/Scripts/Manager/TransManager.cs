@@ -7,10 +7,9 @@ public class TransManager : MonoBehaviour
 
     private GameObject root;
 
+    public GameObject DL;
 
-    [SerializeField,Tooltip("ƒ‰ƒCƒg")] private GameObject DL;
-
-    [SerializeField] private GameObject Tutorial;
+    //[SerializeField] private GameObject Tutorial;
 
     private TutorialManager tm;
 
@@ -23,17 +22,18 @@ public class TransManager : MonoBehaviour
         {
             for (int i = 0; i < root.transform.childCount; i++)
             {
-                
+
                 obj[i] = root.transform.GetChild(i).gameObject;
-               
+
             }
 
-            tm = Tutorial.GetComponent<TutorialManager>();
+            //tm = Tutorial.GetComponent<TutorialManager>();
 
         }
-        else Destroy(this.gameObject);
+        else Debug.Log("error");
 
-        StartMove();
+        //DL = GameObject.FindGameObjectWithTag("Light");
+        DL.SetActive(false);
     }
 
     // Update is called once per frame
@@ -87,12 +87,11 @@ public class TransManager : MonoBehaviour
 
         p = obj[8].GetComponent<TransObject>();//9
         StartCoroutine(p.Move(5));
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(10f);
 
         DL.SetActive(true);
         p = obj[9].GetComponent<TransObject>();//10
-        StartCoroutine(p.Move(100));
-        tm.ShowFVoice();
+        p.DontDestroyMove();
         yield return new WaitForSeconds(20f);
 
         yield return new WaitForSeconds(10f);

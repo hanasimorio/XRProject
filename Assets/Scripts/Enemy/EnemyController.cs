@@ -48,7 +48,8 @@ public class EnemyController : MonoBehaviour,IDamage
 
         rb = gameObject.GetComponent<Rigidbody>();
 
-        StartCoroutine(Dead());
+        rb.isKinematic = false;
+
         //GameManager.instance.SpawnCountUp();
         //StartCoroutine(TestSpawner());
           }
@@ -67,7 +68,7 @@ public class EnemyController : MonoBehaviour,IDamage
         {
             step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, PlayerPosition, step);
-            rb.isKinematic = false;
+            //rb.isKinematic = false;
         }
         else if(AT)
         {

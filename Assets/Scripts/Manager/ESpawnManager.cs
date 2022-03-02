@@ -29,6 +29,7 @@ public class ESpawnManager : MonoBehaviour
 
     void Start()
     {
+        WaveStart(10);
     }
 
     // Update is called once per frame
