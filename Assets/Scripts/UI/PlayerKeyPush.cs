@@ -66,13 +66,16 @@ public class PlayerKeyPush : MonoBehaviour
                 {
                     if(PlayerTextOut.text == "PLAY")
                     {
-                        Play.Invoke();
                         PlayerTextOut.text = "Success!!";
                         parent = other.transform.root.gameObject;
                         LinePos.SetActive(true);//ê¸ÇÇ©ÇØÇÈÇÊÇ§Ç…Ç∑ÇÈ
                         anotherHand.SetActive(true);//Ç‡Ç§ï–ï˚ÇÃéËÇ‡èëÇØÇÈÇÊÇ§Ç…
                         TransScript.StartMove();
                         Destroy(parent);
+                    }
+                    else if(PlayerTextOut.text == "RETRY")
+                    {
+                        Play.Invoke();
                     }
                     else
                     {

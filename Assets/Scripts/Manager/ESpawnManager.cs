@@ -27,9 +27,12 @@ public class ESpawnManager : MonoBehaviour
 
     private int SpawnEnemyCount = 0 ;
 
+    [SerializeField] private GameObject ClearText;
+
     void Start()
     {
         WaveStart(10);
+        ClearText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -49,6 +52,7 @@ public class ESpawnManager : MonoBehaviour
             else
             {
                 Debug.Log("StageClear!!");
+                ClearText.SetActive(true);
                 //ステージクリア後の処理
             }
         }
@@ -63,6 +67,7 @@ public class ESpawnManager : MonoBehaviour
 
     void SpawnEnemy()
     {
+        Debug.Log(CurrentWaveNumber);
         if (CanSpawn)
         {
             for (int i = 0; i < CurrentWave.NumberofEnemyType.Length; i++)

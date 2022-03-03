@@ -1316,10 +1316,10 @@ MonoBehaviour:
   Play:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6183605287949566661, guid: fb1137124ce9b274b9c873fbef9c13f2,
+      - m_Target: {fileID: 8469506174190070396, guid: 135f2a4f865eee3428e9ed441091f688,
           type: 3}
-        m_TargetAssemblyTypeName: TitleBGM, Assembly-CSharp
-        m_MethodName: StartBGM
+        m_TargetAssemblyTypeName: NewSceneManager, Assembly-CSharp
+        m_MethodName: LoadMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

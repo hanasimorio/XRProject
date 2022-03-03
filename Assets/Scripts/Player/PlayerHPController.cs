@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHPController : MonoBehaviour,IPlayerDamage
 {
@@ -25,12 +26,16 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
 
     Image image;
 
+    [SerializeField, Tooltip("DeadUI")]
+    private Image deadimage;
+
     private float ff;
 
     void Start()
     {
         image = DamageImage.GetComponent<Image>();
         image.color = Color.clear;
+        deadimage.color = Color.clear;
         //DamageImage.transform.localScale = new Vector3(20, 0, 0);
     }
 
@@ -77,6 +82,17 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
         }
     }
 
+
+    IEnumerator Dead()
+    {
+        for (float i = 0; i < 1.0f; i += 0.05f)
+        {
+            deadimage.color = new Color(0f, 0f, 0f, i);
+        }
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("TitleScene");
+    }
+
    /* public void TenseiEffect(float waittime)
     {
         StartCoroutine(SpawnEffect(waittime));
@@ -89,5 +105,9 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
         yield return new WaitForSeconds(2f);
         Instantiate(Tenseieffect2, EffectPos.transform.position, EffectPos.transform.rotation);
     }*/
+
+
+
+
 
 }

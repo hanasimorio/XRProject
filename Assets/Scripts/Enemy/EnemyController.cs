@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour,IDamage
         rb.isKinematic = false;
 
         //GameManager.instance.SpawnCountUp();
-        //StartCoroutine(TestSpawner());
+        StartCoroutine(TestSpawner());
           }
 
     // Update is called once per frame

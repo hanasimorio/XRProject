@@ -22,7 +22,7 @@ public class NewSceneManager : MonoBehaviour
     }
     public void LoadTitle()
     {
-        for (float i = 0.2f; i > 1.0f; i += 0.2f)
+        for (float i = 0f; i > 1.0f; i += 0.02f)
         {
             im.color = new Color(0, 0, 0, i);
         }
@@ -33,7 +33,7 @@ public class NewSceneManager : MonoBehaviour
 
     public void LoadMain()
     {
-        for (float i = 0.2f; i > 1.0f; i += 0.2f)
+        for (float i = 0f; i > 1.0f; i += 0.02f)
         {
             im.color = new Color(0, 0, 0, i);
         }

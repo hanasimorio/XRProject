@@ -14,14 +14,15 @@ public class Button : MonoBehaviour
 
     private bool IsPressed;
 
-    
+    private GameObject basebutton;
 
 
     // Start is called before the first frame update
     void Start()
     {
         IsPressed = false;
-
+        var p = transform.parent.gameObject;
+        basebutton = p.transform.parent.gameObject;
         
     }
 
@@ -64,6 +65,6 @@ public class Button : MonoBehaviour
     IEnumerator D()
     {
         yield return new WaitForSeconds(1f);
-        Destroy(this.gameObject);
+        Destroy(basebutton);
     }
 }

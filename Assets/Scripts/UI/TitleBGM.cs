@@ -7,10 +7,13 @@ public class TitleBGM : MonoBehaviour
 
     AudioSource AS;
 
+    AudioClip BG;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        AS = GetComponent<AudioSource>();
         AS.volume = 0f;
     }
 

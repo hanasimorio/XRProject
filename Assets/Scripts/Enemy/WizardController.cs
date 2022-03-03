@@ -56,7 +56,7 @@ public class WizardController : MonoBehaviour,IDamage
         material = child.GetComponent<SkinnedMeshRenderer>().material;
 
         //GameManager.instance.SpawnCountUp();
-        //StartCoroutine(TestSpawner());
+        StartCoroutine(TestSpawner());
     }
 
     // Update is called once per frame
@@ -166,7 +166,7 @@ public class WizardController : MonoBehaviour,IDamage
     {
         AT = false;
         yield return new WaitForSeconds(Random.Range(8,15f));
-        ani.SetTrigger("Attack");
+        ani.SetTrigger("FlameAttack");
         AttackMagic();
         AT = true;
     }
