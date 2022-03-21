@@ -16,6 +16,9 @@ public class Button : MonoBehaviour
 
     private GameObject basebutton;
 
+    AudioSource AS;
+
+    [SerializeField] private AudioClip Push;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +42,7 @@ public class Button : MonoBehaviour
             button.transform.localPosition = new Vector3(0f, 0.003f, 0f);
             Presser = other.gameObject;
             onPressed.Invoke();
-            
+            AS.PlayOneShot(Push);
             IsPressed = true;
         }
 

@@ -11,6 +11,8 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
     [SerializeField, Tooltip("プレイヤーのHP")]
     private float HP = 200;
 
+    private float starthp;
+
     [SerializeField, Tooltip("ダメージ受けたときに表示するUI")]
     private GameObject DamageImage;
 
@@ -36,6 +38,7 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
         image = DamageImage.GetComponent<Image>();
         image.color = Color.clear;
         deadimage.color = Color.clear;
+        starthp = HP;
         //DamageImage.transform.localScale = new Vector3(20, 0, 0);
     }
 
@@ -76,8 +79,15 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
                     
                     break;
                 case Attacks.Slash:
-                    
+
                     break;
+                case Attacks.Water:
+                    HP += 50;
+                    if (HP > starthp)
+                        HP = starthp;
+                    break;
+                   
+
             }
         }
     }

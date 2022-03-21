@@ -9,9 +9,12 @@ public class CrayController : MonoBehaviour
     //[SerializeField] private GameObject Parent;
     private bool col = false;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
+
         
     }
 

@@ -22,26 +22,37 @@ public class NewSceneManager : MonoBehaviour
     }
     public void LoadTitle()
     {
-        for (float i = 0f; i > 1.0f; i += 0.02f)
-        {
-            im.color = new Color(0, 0, 0, i);
-        }
-
-        SceneManager.LoadScene("Titlecene");
+        StartCoroutine(title());
 
     }
 
     public void LoadMain()
     {
+        StartCoroutine(main());
+
+    }
+
+
+    IEnumerator title()
+    {
         for (float i = 0f; i > 1.0f; i += 0.02f)
         {
             im.color = new Color(0, 0, 0, i);
         }
-
-        SceneManager.LoadScene("MainScene");
-
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("Titlecene");
     }
 
+
+    IEnumerator main()
+    {
+        for (float i = 0f; i > 1.0f; i += 0.02f)
+        {
+            im.color = new Color(0, 0, 0, i);
+        }
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("MainScene");
+    }
 
 
 }

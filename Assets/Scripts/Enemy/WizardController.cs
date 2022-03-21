@@ -18,6 +18,10 @@ public class WizardController : MonoBehaviour,IDamage
 
     private bool die = false;
 
+    private AudioSource AS;
+
+    [SerializeField] private AudioClip sound;
+
     /// <summary>
     /// 射出するオブジェクト
     /// </summary>
@@ -55,8 +59,10 @@ public class WizardController : MonoBehaviour,IDamage
 
         material = child.GetComponent<SkinnedMeshRenderer>().material;
 
+        AS.GetComponent<AudioSource>();
+
         //GameManager.instance.SpawnCountUp();
-        StartCoroutine(TestSpawner());
+        //StartCoroutine(TestSpawner());
     }
 
     // Update is called once per frame
@@ -168,6 +174,7 @@ public class WizardController : MonoBehaviour,IDamage
         yield return new WaitForSeconds(Random.Range(8,15f));
         ani.SetTrigger("FlameAttack");
         AttackMagic();
+        AS.PlayOneShot(sound);
         AT = true;
     }
     IEnumerator FlameDamage(float Fdamage)//火魔法を食らった

@@ -29,6 +29,16 @@ public class ESpawnManager : MonoBehaviour
 
     [SerializeField] private GameObject ClearText;
 
+    [SerializeField] private AudioSource AS;
+
+    [SerializeField] private AudioClip fightvc0;
+
+    [SerializeField] private AudioClip fightvc1;
+
+    [SerializeField] private AudioClip fightvc2;
+
+    [SerializeField] private AudioClip fightvc3;
+
     void Start()
     {
         WaveStart(10);
@@ -44,6 +54,7 @@ public class ESpawnManager : MonoBehaviour
             Debug.Log("WaveClear");
             CanSpawn = true;
             CurrentWaveNumber++;
+            SelectVc();//ランダムでボイス
             if (CurrentWaveNumber < 5)
             {
                 CurrentWave = waves[CurrentWaveNumber];
@@ -95,5 +106,24 @@ public class ESpawnManager : MonoBehaviour
         SpawnEnemy();
     }
 
+    private void SelectVc()
+    {
+        int i = Random.Range(0, 4);
+        switch(i)
+        {
+            case 0:
+                AS.PlayOneShot(fightvc0);
+                break;
+            case 1:
+                AS.PlayOneShot(fightvc1);
+                break;
+            case 2:
+                AS.PlayOneShot(fightvc2);
+                break;
+            case 3:
+                AS.PlayOneShot(fightvc3);
+                break;
+        }
+    }
 
 }

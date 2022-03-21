@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Exp_Attack : MonoBehaviour
 {
+
+    AudioSource AS;
+
+    [SerializeField] private AudioClip sound;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        AS = GetComponent<AudioSource>();
+
+        AS.PlayOneShot(sound);
     }
 
     // Update is called once per frame

@@ -22,6 +22,10 @@ public class PlayerKeyPush : MonoBehaviour
 
     private GameObject anotherHand;
 
+    private AudioSource AS;
+
+    [SerializeField] private AudioClip sound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,7 @@ public class PlayerKeyPush : MonoBehaviour
        
         Trans = GameObject.Find("TransManager");
         TransScript = Trans.GetComponent<TransManager>();
+        AS = GetComponent<AudioSource>();
 
 
         if(this.name == "Hitosasi")
@@ -93,6 +98,7 @@ public class PlayerKeyPush : MonoBehaviour
                     {
                         Attention = true;
                         PlayerTextOut.color = new Color(1, 1, 0, 1);
+                        AS.PlayOneShot(sound);
                         PlayerTextOut.text = "Do you want to another world? PushKeyCode: PLAY & EnterKeyPush";
                     }
                 }

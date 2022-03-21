@@ -5,8 +5,17 @@ using UnityEngine;
 public class FirstBossFlame : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    private AudioSource AS;
+
+    [SerializeField] private AudioClip sound;
+
+    [SerializeField] private AudioClip block;
     void Start()
     {
+        AS = GetComponent<AudioSource>();
+
+        AS.PlayOneShot(sound);
         
     }
 
@@ -20,6 +29,7 @@ public class FirstBossFlame : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Shields"))
         {
+            AS.PlayOneShot(block);
             Destroy(this.gameObject);
         }
         else

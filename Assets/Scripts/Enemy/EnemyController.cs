@@ -37,6 +37,10 @@ public class EnemyController : MonoBehaviour,IDamage
 
     public GameObject child;
 
+    AudioSource AS;
+
+    [SerializeField] private AudioClip sound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,8 +54,10 @@ public class EnemyController : MonoBehaviour,IDamage
 
         rb.isKinematic = false;
 
+        AS = GetComponent<AudioSource>();
+
         //GameManager.instance.SpawnCountUp();
-        StartCoroutine(TestSpawner());
+        //StartCoroutine(TestSpawner());
           }
 
     // Update is called once per frame
@@ -110,6 +116,7 @@ public class EnemyController : MonoBehaviour,IDamage
     {
         AT = false;
         ani.SetTrigger("Attack");
+        AS.PlayOneShot(sound);
         yield return new WaitForSeconds(5f);
         AT = true;
     }

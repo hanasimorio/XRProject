@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class EnemySimpleFire : MonoBehaviour
 {
+
+    private AudioSource AS;
+
+    [SerializeField] private AudioClip sound;
+
+    [SerializeField] private AudioClip block;
+
+
     // Start is called before the first frame update
     void Start()
     {
+
+        AS = GetComponent<AudioSource>();
+
+        AS.PlayOneShot(sound);
         
     }
 
@@ -20,6 +32,7 @@ public class EnemySimpleFire : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Shields"))
         {
+            AS.PlayOneShot(block);
             Destroy(this.gameObject);
         }
         else

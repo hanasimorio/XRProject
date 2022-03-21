@@ -5,9 +5,14 @@ using UnityEngine;
 public class FlareController : MonoBehaviour
 {
     // Start is called before the first frame update
+    AudioSource AS;
+
+    [SerializeField] private AudioClip sound;
     void Start()
     {
-        
+        AS = GetComponent<AudioSource>();
+
+        AS.PlayOneShot(sound);
     }
 
     // Update is called once per frame

@@ -16,11 +16,22 @@ public class Electronic: MonoBehaviour
     // ’…’eŽžŠÔ
     [SerializeField] private float period = 0.5f;
 
+    AudioSource AS;
+
+    [SerializeField] private AudioClip sound;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        AS = GetComponent<AudioSource>();
+
+        AS.PlayOneShot(sound);
+
         Invoke("Destroy", 10);
+
+
     }
 
     // Update is called once per frame

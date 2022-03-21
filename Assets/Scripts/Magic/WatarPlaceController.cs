@@ -30,6 +30,13 @@ public class WatarPlaceController : MonoBehaviour
             Enemy.ApplyDamage(0f, types);
             
         }
+
+        var player = other.gameObject.GetComponent<IPlayerDamage>();
+        if(player != null)
+        {
+            List<Attacks> attacks = new List<Attacks> { Attacks.Water };
+            player.ApplyDamage(0f, attacks);
+        }
     }
 
     IEnumerator Destroy()

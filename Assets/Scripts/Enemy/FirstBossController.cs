@@ -61,6 +61,10 @@ public class FirstBossController : MonoBehaviour
 
     private Material material;
 
+    private AudioSource AS;
+
+    [SerializeField] private AudioClip sound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +74,8 @@ public class FirstBossController : MonoBehaviour
         GameObject child = transform.GetChild(1).gameObject;
 
         material = child.GetComponent<SkinnedMeshRenderer>().material;//子オブジェクトのマテリアルを参照する
+
+        AS.GetComponent<AudioSource>();
 
         //GameManager.instance.SpawnCountUp();
         //StartCoroutine(TestSpawner());
@@ -229,6 +235,8 @@ public class FirstBossController : MonoBehaviour
 
             ani.SetTrigger("FlameAttack");
 
+            AS.PlayOneShot(sound);
+
             rid.AddForce(velocity * rid.mass, ForceMode.Impulse);
 
             AT = true;
@@ -253,6 +261,7 @@ public class FirstBossController : MonoBehaviour
         for(int i = 0; i < 5; i++)
         {
             var t = Instantiate(FiveFlameMagic, FivePos[i].transform.position, Quaternion.identity);
+            AS.PlayOneShot(sound);
             yield return new WaitForSeconds(2f);
             t.GetComponent<Rigidbody>().velocity = FivePos[i].transform.forward.normalized * 30;
         }
