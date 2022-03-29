@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour,IDamage
     [SerializeField] private float HP = 100;
 
     [Tooltip("PlayerObject")]
-    [SerializeField] private GameObject Player;
+    private GameObject Player;
 
     [Tooltip("çUåÇãóó£")]
     [SerializeField] private float Distance = 3;
@@ -44,6 +44,8 @@ public class EnemyController : MonoBehaviour,IDamage
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
+
         ani = gameObject.GetComponent<Animator>();
         ani.SetBool("Walk", true);
         PlayerPosition = Player.transform.position;

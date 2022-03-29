@@ -32,6 +32,8 @@ public class TransManager : MonoBehaviour
         }
         else Debug.Log("error");
 
+        //StartMove();
+
         //DL = GameObject.FindGameObjectWithTag("Light");
         DL.SetActive(false);
     }
@@ -55,39 +57,39 @@ public class TransManager : MonoBehaviour
 
         var p = obj[0].GetComponent<TransObject>();//1
         StartCoroutine(p.Move(5));
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
         p = obj[1].GetComponent<TransObject>();//2
         StartCoroutine(p.Move(5));
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
         p = obj[2].GetComponent<TransObject>();//3
         StartCoroutine(p.Move(5));
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         p = obj[3].GetComponent<TransObject>();//4
         StartCoroutine(p.Move(5));
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         p = obj[4].GetComponent<TransObject>();//5
         StartCoroutine(p.Move(5));
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
         p = obj[5].GetComponent<TransObject>();//6
         StartCoroutine(p.Move(5));
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
         p = obj[6].GetComponent<TransObject>();//7
         StartCoroutine(p.Move(18));
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(3);
 
         p = obj[7].GetComponent<TransObject>();//8
         StartCoroutine(p.Move(22));
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
 
         p = obj[8].GetComponent<TransObject>();//9
         StartCoroutine(p.Move(5));
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(15);
 
         DL.SetActive(true);
         p = obj[9].GetComponent<TransObject>();//10

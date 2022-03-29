@@ -26,7 +26,9 @@ public class Button : MonoBehaviour
         IsPressed = false;
         var p = transform.parent.gameObject;
         basebutton = p.transform.parent.gameObject;
-        
+
+        AS = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame

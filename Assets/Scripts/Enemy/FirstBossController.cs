@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstBossController : MonoBehaviour
+public class FirstBossController : MonoBehaviour,IDamage
 {
     [SerializeField] private float HP = 100;
 
     [Tooltip("PlayerObject")]
-    [SerializeField] private GameObject Player;
+    private GameObject Player;
 
     [SerializeField, Tooltip("死んだときのパーティクル")]
     private ParticleSystem particle;
@@ -75,7 +75,9 @@ public class FirstBossController : MonoBehaviour
 
         material = child.GetComponent<SkinnedMeshRenderer>().material;//子オブジェクトのマテリアルを参照する
 
-        AS.GetComponent<AudioSource>();
+        AS = GetComponent<AudioSource>();
+
+        Player = GameObject.FindGameObjectWithTag("Player");
 
         //GameManager.instance.SpawnCountUp();
         //StartCoroutine(TestSpawner());
@@ -113,7 +115,7 @@ public class FirstBossController : MonoBehaviour
             switch (types[i])
             {
                 case Type.Flame:
-                    StartCoroutine(FlameDamage(10));
+                    //StartCoroutine(FlameDamage(10));
                     break;
                 case Type.Thunder:
                     //雷攻撃の効果処理
@@ -210,6 +212,8 @@ public class FirstBossController : MonoBehaviour
     //攻撃手段
     IEnumerator BigFlameAttack()
     {
+        yield return new WaitForSeconds(1f);
+
         if (ThrowingObject != null && TargetObject != null)
         {
             // Ballオブジェクトの生成
@@ -227,11 +231,6 @@ public class FirstBossController : MonoBehaviour
             // 射出
             Rigidbody rid = ball.GetComponent<Rigidbody>();
 
-            rid.isKinematic = true;
-
-            yield return new WaitForSeconds(8f);
-
-            rid.isKinematic = false;
 
             ani.SetTrigger("FlameAttack");
 
@@ -264,6 +263,7 @@ public class FirstBossController : MonoBehaviour
             AS.PlayOneShot(sound);
             yield return new WaitForSeconds(2f);
             t.GetComponent<Rigidbody>().velocity = FivePos[i].transform.forward.normalized * 30;
+            AT = true;
         }
         
     }

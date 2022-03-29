@@ -7,7 +7,7 @@ public class WizardController : MonoBehaviour,IDamage
     [SerializeField] private float HP = 100;
 
     [Tooltip("PlayerObject")]
-    [SerializeField] private GameObject Player;
+    private GameObject Player;
 
     [SerializeField, Tooltip("死んだときのパーティクル")]
     private ParticleSystem particle;
@@ -53,13 +53,15 @@ public class WizardController : MonoBehaviour,IDamage
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
+
         ani = gameObject.GetComponent<Animator>();
 
         GameObject child = transform.GetChild(1).gameObject;
 
         material = child.GetComponent<SkinnedMeshRenderer>().material;
 
-        AS.GetComponent<AudioSource>();
+        AS =  GetComponent<AudioSource>();
 
         //GameManager.instance.SpawnCountUp();
         //StartCoroutine(TestSpawner());

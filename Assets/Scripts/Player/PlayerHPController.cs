@@ -52,10 +52,34 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
     public void ApplyDamage(float damage, List<Attacks> attacks)
     {
         HP -= damage;
+
+        for (int i = 0; i < attacks.Count; i++)
+        {
+            switch (attacks[i])
+            {
+                case Attacks.Flame:
+
+                    break;
+                case Attacks.Slash:
+
+                    break;
+                case Attacks.Water:
+                    HP += 50;
+                    if (HP > starthp)
+                        HP = starthp;
+                    break;
+
+
+            }
+        }
+
+
         if (HP <= 0)
         {
 
             //Ž€–Sˆ—
+            StartCoroutine(Dead());
+
         }
         else if (HP <= 50)
         {
@@ -71,25 +95,7 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
             this.image.color = new Color(0.2f, 0f, 0f, 1.0f);
         }
 
-        for (int i = 0; i < attacks.Count; i++)
-        {
-            switch (attacks[i])
-            {
-                case Attacks.Flame:
-                    
-                    break;
-                case Attacks.Slash:
-
-                    break;
-                case Attacks.Water:
-                    HP += 50;
-                    if (HP > starthp)
-                        HP = starthp;
-                    break;
-                   
-
-            }
-        }
+        
     }
 
 
@@ -99,7 +105,7 @@ public class PlayerHPController : MonoBehaviour,IPlayerDamage
         {
             deadimage.color = new Color(0f, 0f, 0f, i);
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(6f);
         SceneManager.LoadScene("TitleScene");
     }
 

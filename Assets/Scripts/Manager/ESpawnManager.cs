@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 [System.Serializable]
 public class Wave
 {
@@ -65,6 +67,8 @@ public class ESpawnManager : MonoBehaviour
                 Debug.Log("StageClear!!");
                 ClearText.SetActive(true);
                 //ステージクリア後の処理
+                Invoke("GoTitle", 30);
+
             }
         }
 
@@ -124,6 +128,11 @@ public class ESpawnManager : MonoBehaviour
                 AS.PlayOneShot(fightvc3);
                 break;
         }
+    }
+
+    private void GoTitle()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 
 }
