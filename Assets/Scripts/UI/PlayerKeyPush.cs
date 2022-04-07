@@ -99,7 +99,7 @@ public class PlayerKeyPush : MonoBehaviour
                         Attention = true;
                         PlayerTextOut.color = new Color(1, 1, 0, 1);
                         AS.PlayOneShot(sound);
-                        PlayerTextOut.text = "Do you want to another world? PushKeyCode: PLAY & EnterKeyPush";
+                        PlayerTextOut.text = "異世界に行きたくない? 行きたいのならPLAYと打ち込んでEnterをクリック！";
                     }
                 }
                 else
