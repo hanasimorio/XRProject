@@ -1718,7 +1718,7 @@ MonoBehaviour:
     Thank you for playing'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 12b28eac0315d7e40981563571a3b7b5, type: 2}
-  m_sharedMaterial: {fileID: 5285103795727141447, guid: 12b28eac0315d7e40981563571a3b7b5,
+  m_sharedMaterial: {fileID: -8669654196772051741, guid: 12b28eac0315d7e40981563571a3b7b5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1808,7 +1808,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5285103795727141447, guid: 12b28eac0315d7e40981563571a3b7b5, type: 2}
+  - {fileID: -8669654196772051741, guid: 12b28eac0315d7e40981563571a3b7b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
